@@ -22,7 +22,7 @@ const App = () => {
         <BrowserRouter>
             <Toaster position="bottom-center" />
             <Routes>
-                {isLoggedIn ? (
+                {isLoggedIn && (
                     <>
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/product" element={<ProductManagement />} />
@@ -33,27 +33,27 @@ const App = () => {
                         <Route path="/brand" element={<Brand />} />
                         <Route path="/*" element={<p>404 Not Found</p>} />
                     </>
-                ) : (
-                    <>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/details/:id" element={<ProductDetails />} />
-                        <Route path="/by-brand/:id" element={<ProductByBrand />} />
-                        <Route path="/by-category/:id" element={<ProductByCategory />} />
-                        <Route path="/by-keyword/:keyword" element={<ProductByKeyword />} />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/otp" element={<OtpPage />} />
-                    </>
                 )}
 
-                <Route
-                    path="/*"
-                    element={
-                        <div className='not-found-container'>
-                            <p className='not-found-message'>404 Not Found</p>
-                            <button className="btn btn-primary go-back-button" onClick={() => window.history.back()}>Go Back</button>
-                        </div>
-                    }
-                />
+                <>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/details/:id" element={<ProductDetails />} />
+                    <Route path="/by-brand/:id" element={<ProductByBrand />} />
+                    <Route path="/by-category/:id" element={<ProductByCategory />} />
+                    <Route path="/by-keyword/:keyword" element={<ProductByKeyword />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/otp" element={<OtpPage />} />
+                    <Route
+                        path="/*"
+                        element={
+                            <div className='not-found-container'>
+                                <p className='not-found-message'>404 Not Found</p>
+                                <button className="btn btn-primary go-back-button" onClick={() => window.history.back()}>Go Back</button>
+                            </div>
+                        }
+                    />
+                </>
+
             </Routes>
         </BrowserRouter>
     );
