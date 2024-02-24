@@ -97,28 +97,39 @@ const AppNavBar = () => {
                             <li className="nav-item me-4">
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
-                            {getAccessToken() ? (<li className="nav-item me-4">
-                                <Link className="nav-link" to="/product">Product</Link>
-                            </li>) : (<span></span>)}
-
+                            {getAccessToken() ? (
+                                <li className="nav-item me-4">
+                                    <Link className="nav-link" to="/product">Product</Link>
+                                </li>
+                            ) : (
+                                <span></span>
+                            )}
                         </ul>
-                    </div>
-                    <div className="d-lg-flex">
-                        <div className="input-group">
-                            <input onChange={(e) => SetSearchKeyword(e.target.value)} className="form-control" type="search" placeholder="Search" aria-label="Search" />
-                            <Link to={SearchKeyword.length > 0 ? `/by-keyword/${SearchKeyword}` : `/`} className="btn btn-outline-dark" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ width: 24, height: 24 }}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </Link>
-                        </div>
-                        {
-                            getAccessToken() ? (
+
+                        <div className="d-lg-flex ms-lg-auto">
+                            <div className="input-group">
+                                <input
+                                    onChange={(e) => SetSearchKeyword(e.target.value)}
+                                    className="form-control"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                />
+                                <Link
+                                    to={SearchKeyword.length > 0 ? `/by-keyword/${SearchKeyword}` : `/`}
+                                    className="btn btn-outline-dark"
+                                    type="submit"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ width: 24, height: 24 }}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </Link>
+                            </div>
+
+                            {getAccessToken() ? (
                                 <>
-
-
                                     <Dropdown
-                                        className='float-end fs-5'
+                                        className='fs-5'
                                         menu={{
                                             items: items,
                                             selectable: false,
@@ -127,18 +138,20 @@ const AppNavBar = () => {
                                             },
                                         }}
                                     >
-                                        <NavLink className="mx-3 nav-link" to="/profile"> <Avatar
-                                            src={ProfileDetails?.avatar}
-                                            size="40"
-                                            className="cursorPointer"
-                                            round={true}
-                                        /></NavLink>
+                                        <NavLink className="mx-3 nav-link" to="/profile">
+                                            <Avatar
+                                                src={ProfileDetails?.avatar}
+                                                size="40"
+                                                className="cursorPointer"
+                                                round={true}
+                                            />
+                                        </NavLink>
                                     </Dropdown>
                                 </>
                             ) : (
                                 <Link type="button" className="btn ms-3 btn-success d-flex" to="/login">Login</Link>
-                            )
-                        }
+                            )}
+                        </div>
                     </div>
                 </div>
             </nav>
