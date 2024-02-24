@@ -172,9 +172,9 @@ const EditProduct = () => {
                     <div className="card p-3 shadow-sm">
                         <h5 className="fw-bold mb-3">eShop</h5>
                         <ul className="list-group">
-                            <li className='list-group-item'><NavLink to={'/product'} className="nav-link">Product</NavLink></li>
-                            <li className='list-group-item'>Category</li>
-                            <li className='list-group-item'>Brand</li>
+                            <li className='list-group-item'><NavLink to={'/product'} className="nav-link">All Products</NavLink></li>
+                            <li className='list-group-item'><NavLink to={'/category'} className="nav-link">Category List</NavLink></li>
+                            <li className='list-group-item'><NavLink to={'/brand'} className="nav-link">Brand List</NavLink></li>
                         </ul>
                     </div>
                 </div>

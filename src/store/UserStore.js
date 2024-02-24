@@ -1,6 +1,6 @@
 import create from "zustand";
 import axios from "axios";
-import { getEmail, setEmail, unauthorized } from "../utility/utility.js";
+import { getEmail, setEmail, unauthorized } from "../utility/Utility.js";
 import { setAccessToken } from "../utility/SessionHelper.js";
 import { axiosHeader, getBaseURL } from "../utility/FunctionHelper.js";
 

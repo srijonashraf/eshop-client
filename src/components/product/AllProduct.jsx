@@ -4,7 +4,7 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 import UserSubmitButton from './../user/UserSubmitButton';
 import toast from 'react-hot-toast';
-import { DeleteAlert } from '../../utility/utility';
+import { DeleteAlert } from '../../utility/Utility.js';
 
 
 const AllProduct = () => {
@@ -34,8 +34,8 @@ const AllProduct = () => {
                         </div>
                         <ul className="list-group">
                             <li className='list-group-item'><NavLink to={'/newProduct'} className="nav-link">New Product</NavLink></li>
-                            <li className='list-group-item'>Category</li>
-                            <li className='list-group-item'>Brand</li>
+                            <li className='list-group-item'><NavLink to={'/category'} className="nav-link">Category List</NavLink></li>
+                            <li className='list-group-item'><NavLink to={'/brand'} className="nav-link">Brand List</NavLink></li>
                         </ul>
                     </div>
                 </div>

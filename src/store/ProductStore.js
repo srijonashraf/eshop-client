@@ -126,6 +126,77 @@ const ProductStore = create((set) => ({
       set({ AllProduct: res.data.data });
     }
   },
+
+  CreateCatagory: null,
+  CreateCatagoryRequest: async (body) => {
+    let res = await axios.post(
+      `${BaseUrl}/api/v1/CreateCategory`,
+      body,
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ CreateCatagory: true });
+    }
+  },
+
+  UpdateCategory: null,
+  UpdateCategoryRequest: async (id, body) => {
+    let res = await axios.post(
+      `${BaseUrl}/api/v1/UpdateCategory/${id}`,
+      { categoryName: body.categoryName, categoryImg: body.categoryImg },
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ UpdateCategory: true });
+    }
+  },
+
+  DeleteCategory: null,
+  DeleteCategoryRequest: async (id) => {
+    let res = await axios.get(
+      `${BaseUrl}/api/v1/DeleteCategory/${id}`,
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ UpdateCatagory: true });
+    }
+  },
+
+  CreateBrand: null,
+  CreateBrandRequest: async (body) => {
+    let res = await axios.post(
+      `${BaseUrl}/api/v1/CreateBrand`,
+      body,
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ CreateBrand: true });
+    }
+  },
+
+  UpdateBrand: null,
+  UpdateBrandRequest: async (id, body) => {
+    let res = await axios.post(
+      `${BaseUrl}/api/v1/UpdateBrand/${id}`,
+      { brandName: body.brandName, brandImg: body.brandImg },
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ UpdateBrand: true });
+    }
+  },
+
+  DeleteBrand: null,
+  DeleteBrandRequest: async (id) => {
+    let res = await axios.get(
+      `${BaseUrl}/api/v1/DeleteBrand/${id}`,
+      axiosHeader()
+    );
+    if (res.data["status"] === "success") {
+      set({ DeleteBrand: true });
+    }
+  },
+
 }));
 
 export default ProductStore;
