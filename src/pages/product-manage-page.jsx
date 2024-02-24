@@ -16,7 +16,9 @@ const ProductManagement = () => {
 
     useEffect(() => {
         (async () => {
-            await ListByKeywordRequest(keyword)
+            if (keyword) {
+                await ListByKeywordRequest(keyword)
+            }
         })()
     }, [keyword]);
 

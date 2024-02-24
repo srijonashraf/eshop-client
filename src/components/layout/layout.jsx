@@ -1,6 +1,6 @@
 import React from 'react';
 import AppNavBar from "./appNavBar.jsx";
-import Footer from "./Footer.jsx";
+import Footer from "./footer.jsx";
 import { Toaster } from "react-hot-toast";
 
 const Layout = (props) => {
