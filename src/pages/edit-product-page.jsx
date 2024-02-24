@@ -1,9 +1,8 @@
-import { Layout } from 'antd';
 import React, { useEffect } from 'react';
 import EditProduct from './../components/product/edit-product';
 import { useParams } from 'react-router-dom';
 import ProductStore from '../store/ProductStore';
-import AppNavBar from '../components/layout/AppNavBar';
+import Layout from '../components/layout/layout';
 
 const EditProductPage = () => {
     const { DetailsRequest } = ProductStore();
@@ -15,10 +14,9 @@ const EditProductPage = () => {
         })()
     }, [id]);
     return (
-        <div>
-            <AppNavBar />
+        <Layout>
             <EditProduct />
-        </div>
+        </Layout>
 
     );
 };
