@@ -79,6 +79,33 @@ const EditProduct = () => {
                 size: Details[0].details.size
             });
         }
+
+        else {
+            setFormData({
+                title: '',
+                shortDes: '',
+                price: '',
+                discount: '',
+                discountPrice: '',
+                image: '',
+                star: '',
+                stock: '',
+                remark: '',
+                brandID: '',
+                categoryID: '',
+                img1: '',
+                img2: '',
+                img3: '',
+                img4: '',
+                img5: '',
+                img6: '',
+                img7: '',
+                img8: '',
+                des: '',
+                color: '',
+                size: ''
+            })
+        }
     }, [Details]);
 
     const handleChange = (e) => {
