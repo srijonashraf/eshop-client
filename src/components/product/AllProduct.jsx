@@ -11,8 +11,6 @@ const AllProduct = () => {
     const { AllProduct, DeleteProductRequest, AllProductRequest, SetSearchKeyword, SearchKeyword } = ProductStore();
     const [change, setChange] = useState('');
 
-    const { keyword } = useParams();
-
     useEffect(() => {
         (async () => {
             await AllProductRequest();

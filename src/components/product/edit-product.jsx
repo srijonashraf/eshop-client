@@ -33,12 +33,12 @@ const EditProduct = () => {
 
     useEffect(() => {
         const fetchProductDetails = async () => {
-            if (Details === null) {
+            if (id && Details === null) {
                 await DetailsRequest(id);
             }
         };
         fetchProductDetails();
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         const fetchBrandCategory = async () => {
@@ -53,7 +53,7 @@ const EditProduct = () => {
     }, []);
 
     useEffect(() => {
-        if (Details !== null) {
+        if (id && Details) {
             setFormData({
                 title: Details[0].title,
                 shortDes: Details[0].shortDes,
@@ -80,32 +80,6 @@ const EditProduct = () => {
             });
         }
 
-        else {
-            setFormData({
-                title: '',
-                shortDes: '',
-                price: '',
-                discount: '',
-                discountPrice: '',
-                image: '',
-                star: '',
-                stock: '',
-                remark: '',
-                brandID: '',
-                categoryID: '',
-                img1: '',
-                img2: '',
-                img3: '',
-                img4: '',
-                img5: '',
-                img6: '',
-                img7: '',
-                img8: '',
-                des: '',
-                color: '',
-                size: ''
-            })
-        }
     }, [Details]);
 
     const handleChange = (e) => {

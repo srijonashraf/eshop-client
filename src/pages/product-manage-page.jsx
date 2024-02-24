@@ -6,22 +6,33 @@ import AllProduct from "../components/product/AllProduct.jsx";
 const ProductManagement = () => {
     const { AllProductRequest, ListByKeywordRequest } = ProductStore();
 
+    const { keyword } = useParams(); 3
+
     useEffect(() => {
-        (async () => {
-            await AllProductRequest();
-        })()
+        const fetchData = async () => {
+            try {
+                await AllProductRequest();
+            } catch (error) {
+                console.error("Error fetching all products:", error);
+            }
+        };
+        fetchData();
     }, []);
 
-    const { keyword } = useParams();
-
     useEffect(() => {
-        (async () => {
-            if (keyword) {
-                await ListByKeywordRequest(keyword)
+        const fetchData = async () => {
+            try {
+                if (keyword) {
+                    await ListByKeywordRequest(keyword);
+                } else {
+                    await AllProductRequest();
+                }
+            } catch (error) {
+                console.error("Error fetching products by keyword:", error);
             }
-        })()
+        };
+        fetchData();
     }, [keyword]);
-
 
     return (
         <Layout>
