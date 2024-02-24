@@ -1,15 +1,15 @@
 import React from 'react';
-import AppNavBar from "./AppNavBar.jsx";
+import AppNavBar from "./appNavBar.jsx";
 import Footer from "./Footer.jsx";
-import {Toaster} from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const Layout = (props) => {
     return (
         <>
-            <AppNavBar/>
+            <AppNavBar />
             {props.children}
-            <Toaster position="bottom-center"/>
-            <Footer/>
+            <Toaster position="bottom-center" />
+            <Footer />
         </>
     );
 };
